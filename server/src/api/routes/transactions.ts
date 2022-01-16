@@ -23,7 +23,7 @@ router.post('/', (req, res, next) => {
   }
 });
 
-router.get('/:userId', (req, res, next) => {
+router.get('/users/:userId', (req, res, next) => {
   const options = {
     userId: req.params['userId']
   };
