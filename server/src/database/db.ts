@@ -13,3 +13,7 @@ export const transactions:Transaction[] = [
 export const users:User[] = [
 
 ]
+
+export const account:Account[] = [
+    
+]

@@ -50,9 +50,10 @@ export const getTransactionsByUserid = (options) => {
 };
  
 const validTransaction = (options:Transaction) => {
-  const sender:User = users.find((user:any) => user.id === options.senderId) //verify sender exists
-  const receiver:User = users.find((user:any) => user.id === options.receiverId) // verify receipient exists
-  const hasEnoughBalance = (sender.account.balance - options.amount) > 0  //check if sender has enough money for the transaction
+  const sender = users.find((user:any) => user.id === options.senderId) //verify sender exists
+  const receiver = users.find((user:any) => user.id === options.receiverId) // verify receipient exists
+  const hasEnoughBalance = (sender?.account.balance || 0 - options.amount) > 0  //check if sender has enough money for the transaction
+  
 
   return sender && receiver && hasEnoughBalance 
 }

@@ -4,8 +4,12 @@ import Transaction from './Transaction';
 interface User {
         name:string,
         id:string,
+        account:Account   
         transactions?:Transaction[],
-        account?:Account    
+         
+}
+export interface CreateUserRequest {
+        name:string
 }
 
 export default User
