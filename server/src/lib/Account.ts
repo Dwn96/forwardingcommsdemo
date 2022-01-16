@@ -2,7 +2,8 @@ import Transaction from './Transaction';
 import User from './User';
 
 interface Account {
-    user:User,
+    userId:string,
+    accountId:string,
     balance:number,
     transactions?:Transaction[]
 }

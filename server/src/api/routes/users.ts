@@ -9,8 +9,7 @@ const router = express.Router();
  */
 router.post('/', async (req, res, next) => {
   const options = {
-    name: req.body.name,
-    id: uuid()
+    name: req.body.name
   };
 
   try {
