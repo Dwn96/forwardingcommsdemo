@@ -1,5 +1,6 @@
 import express from 'express'
 import { createUser } from '../services/users';
+import { v4 as uuid } from 'uuid';
 
 const router = express.Router();
 
@@ -8,7 +9,8 @@ const router = express.Router();
  */
 router.post('/', async (req, res, next) => {
   const options = {
-    user: req.body['user']
+    name: req.body.name,
+    id: uuid()
   };
 
   try {
@@ -19,4 +21,4 @@ router.post('/', async (req, res, next) => {
   }
 });
 
-export default router;
+export default router
