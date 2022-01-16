@@ -2,6 +2,7 @@ import { users } from '../../database/db';
 import User, { CreateUserRequest } from '../../lib/User';
 import { createAccount } from './accounts';
 import { v4 as uuid } from 'uuid';
+import { encryptStringWithRsaPublicKey } from '../crypto/crypto';
 
 /**
  * @param {Object} options
@@ -14,13 +15,13 @@ import { v4 as uuid } from 'uuid';
   if(!request.name){
     return {
       status: 400,
-      data: 'Bad request. Missing required field'
+      data: encryptStringWithRsaPublicKey('Bad request. Missing required field')
     };
   }
   createUserAndAccount(request.name)
   return {
     status: 200,
-    data: 'createUser ok!'
+    data: encryptStringWithRsaPublicKey('createUser ok!')
   };
 };
 

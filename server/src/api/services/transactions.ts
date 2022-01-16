@@ -1,6 +1,7 @@
 import { transactions, users } from '../../database/db';
 import Transaction from '../../lib/Transaction';
 import User from '../../lib/User';
+import { decryptStringWithRsaPrivateKey, encryptStringWithRsaPublicKey } from '../crypto/crypto';
 
 /**
  * @param {Object} options
@@ -36,16 +37,17 @@ import User from '../../lib/User';
  * @return {Promise}
  */
 export const getTransactionsByUserid = (options) => {
- const txs = transactions.filter((transactions => transactions.senderId === options.userId || transactions.receiverId == options.userId))
-  if(txs.length === 0) {
+ const txs = transactions.filter((transaction => transaction.senderId == options.userId || transaction.receiverId == options.userId))
+  
+ if(txs.length === 0) {
     return {
       status: 400,
-      data: `No transactions by user ${options.userId} found`
+      data: encryptStringWithRsaPublicKey(`No transactions by user ${options.userId} found`)
     };
   }
   return {
     status: 200,
-    data: txs
+    data: encryptStringWithRsaPublicKey(JSON.stringify(txs))
   };
 };
  
