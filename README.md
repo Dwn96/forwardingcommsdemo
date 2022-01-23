@@ -51,5 +51,22 @@ As soon as a connection has been established and the key-exchange is completed, 
 POST
 
 ## Server
+The server application is a REST API that has been decoupled into the following layers:
 
+  1. Routing
+  2. Service
+  3. Mock database
 
+ ### Routing layer
+ The routing layer exposes endpoints for each resource maintained by our application. This is the first point of contact for data sent over HTTP by the client 
+ application. 
+ Our server exposes POST and GET routes for resources: **users** and **transactions**
+
+### Service layer
+This layer holds the business logic on how data received from the routing layer is handled
+
+### Database
+We maintain a mock in-memory database for each of our resources.
+
+## Client
+The client application is a simple Typescript app
