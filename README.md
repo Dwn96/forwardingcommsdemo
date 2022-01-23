@@ -23,7 +23,10 @@ This repo holds a client and server app which exchange encrypted payloads my mak
 ## Encryption
 
 Communication between server and client apps is encrypted end-to-end via Asymmetric Encryption. We make use of [Crypto](https://nodejs.org/api/crypto.html)
-to handle the cryptographic functionality.
+to handle the following cryptographic functionalities:
+  1. Client and server Key- pair generation
+  2. Encryption using a public key
+  3. Decrpytion using a private key
 
 When a connection is established between the client and server apps, a key-exchange process is triggered which takes place in the following way:
 
@@ -32,5 +35,13 @@ When a connection is established between the client and server apps, a key-excha
         *c = E(pub_key_S, pub_key_C)*
   3. The server decrypts c with its private key *pub_key_C = D(pri_key_S, c)*
   
- At this point, the Client and Server can proceed to securely communicate for the ongoing session.
+ At this point, the Client and Server can proceed to securely communicate for the ongoing session by encrypting using each others' public key and decrypting using  ones private key.
+
+### Communication
+Communication between the client and server apps is handled in two ways:
+  1. [The WebSocket Protocol](https://www.rfc-editor.org/rfc/rfc6455)
+  2. [HTTP](https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-http2-01)
+
+### Client
+
 
