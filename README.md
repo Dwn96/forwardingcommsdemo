@@ -1,6 +1,3 @@
-# Problem 2: Re-routing/forwarding communication
-This repo holds a client and server app which exchange encrypted payloads my making use of websockets and http POST to the server
-
 ## Getting started
 
 1. Clone the repository
@@ -19,6 +16,11 @@ This repo holds a client and server app which exchange encrypted payloads my mak
 
         npm run dev
 
+#Introduction
+This repo holds a client and server app which exchange encrypted payloads by making use of websockets and http POST to the server.
+This client-server pair demonstrates practical use of asymmetric-key cryptography for secure end to end communication, port forwarding over TCP
+and HTTP; and REST API development
+
 ## Server
 The server application is a REST API that has been decoupled into the following layers:
 
@@ -32,7 +34,8 @@ The server application is a REST API that has been decoupled into the following 
    Our server exposes POST and GET routes for resources: **users** and **transactions**
 
   #### Service layer
-  This layer holds the business logic on how data received from the routing layer is handled
+  This layer holds the business logic on how data received from the routing layer is handled. The logic for writing to and reading from our mock database
+  resides in this layer.
 
   #### Database
   We maintain a mock in-memory database for each of our resources.
