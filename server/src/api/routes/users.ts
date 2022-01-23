@@ -11,7 +11,7 @@ router.post('/', async (req, res, next) => {
   const options = {
     name: req.body.name
   };
-
+  console.log(options)
   try {
     const result = await createUser(options);
     res.status(result.status || 200).send(result.data);

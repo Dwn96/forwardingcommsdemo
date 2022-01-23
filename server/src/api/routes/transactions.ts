@@ -9,12 +9,12 @@ const router = express.Router();
  */
 router.post('/', (req, res, next) => {
   const options = {
-    senderId: req.body.source,
-    receiverId: req.body.destination,
+    senderId: req.body.senderId,
+    receiverId: req.body.receiverId,
     amount: req.body.amount,
     action: req.body.action
   }
-
+console.log(options)
   try {
     const result = createTransaction(options);
     res.status(result.status || 200).send(result.data);
@@ -27,6 +27,7 @@ router.get('/users/:userId', (req, res, next) => {
   const options = {
     userId: req.params['userId']
   };
+console.log(options);
 
   try {
     const result = getTransactionsByUserid(options);
