@@ -54,7 +54,7 @@ to handle the following cryptographic functionalities:
 When a connection is established between the client and server apps, a key-exchange process is triggered which takes place in the following way:
 
 ![image](https://user-images.githubusercontent.com/45044744/150684620-c283c0a4-eb69-45fe-93cd-4ae7b18edc47.png)
-    Source: https://www.okta.com/identity-101/asymmetric-encryption/
+  ###### Source: https://www.okta.com/identity-101/asymmetric-encryption/
 
   1. The server sends client its public key *pub_key_S*
   2. The client sends to server its public key encrypted with the server's public key
