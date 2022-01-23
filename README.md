@@ -17,9 +17,8 @@
         npm run dev
 
 # Introduction
-This repo holds a client and server app which exchange encrypted payloads by making use of websockets and http POST to the server.
-This client-server pair demonstrates practical use of asymmetric-key cryptography for secure end to end communication, port forwarding over TCP
-and HTTP; and REST API development
+This repo holds a client and server pair which exchange encrypted payloads over HTTP and websockets. This project demonstrates 
+practical use of asymmetric-key cryptography for secure end to end communication, port forwarding over TCP and HTTP; and REST API development
 
 ## Server
 The server application is a REST API that has been decoupled into the following layers:
@@ -27,6 +26,8 @@ The server application is a REST API that has been decoupled into the following 
   1. Routing
   2. Service
   3. Mock database
+  
+On startup, a public and private key pair are generated.
 
    #### Routing layer
    The routing layer exposes endpoints for each resource maintained by our application. This is the first point of contact for data sent over HTTP by the client 
@@ -40,8 +41,11 @@ The server application is a REST API that has been decoupled into the following 
   #### Database
   We maintain a mock in-memory database for each of our resources.
 
+
 ## Client
-The client application is a simple Typescript app. This app is invloved in key-exchanges with the server application via websockets after which it sends encrypted payloads to the server application over HTTP
+The client application is a simple Typescript app. 
+This app is invloved in key-exchanges with the server application via websockets after which it sends encrypted payloads to the server application over HTTP.
+The client app comes bundled with a public and private key pair which are dynamically generated at runtime.
 
 # Forwarding Communication between Client and Server
 Communication between the client and server apps is handled in two ways:
