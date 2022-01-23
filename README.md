@@ -42,11 +42,11 @@ Communication between the client and server apps is handled in two ways:
   1. [The WebSocket Protocol](https://www.rfc-editor.org/rfc/rfc6455)
   2. [HTTP](https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-http2-01)
 
- ###Websockets
+ ### Websockets
 In our implementation, we make use of websockets during key-exchange which occurs as soon as a connection is established between client and server apps. 
 For this functionality, we make use of [Socket.io](https://socket.io/docs/v4/) - a library that enables bidirectional and event-based communication between the client and the server.
 
-###HTTP
+### HTTP
 As soon as a connection has been established and the key-exchange is completed, we send encrypted payloads of dummy data over HTTP to our server application via
 POST
 
@@ -57,16 +57,16 @@ The server application is a REST API that has been decoupled into the following 
   2. Service
   3. Mock database
 
- ### Routing layer
- The routing layer exposes endpoints for each resource maintained by our application. This is the first point of contact for data sent over HTTP by the client 
- application. 
- Our server exposes POST and GET routes for resources: **users** and **transactions**
+     ### Routing layer
+     The routing layer exposes endpoints for each resource maintained by our application. This is the first point of contact for data sent over HTTP by the client 
+     application. 
+     Our server exposes POST and GET routes for resources: **users** and **transactions**
 
-### Service layer
-This layer holds the business logic on how data received from the routing layer is handled
+    ### Service layer
+    This layer holds the business logic on how data received from the routing layer is handled
 
-### Database
-We maintain a mock in-memory database for each of our resources.
+    ### Database
+    We maintain a mock in-memory database for each of our resources.
 
 ## Client
 The client application is a simple Typescript app
