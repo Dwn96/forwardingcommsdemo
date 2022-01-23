@@ -13,9 +13,9 @@ This repo holds a client and server app which exchange encrypted payloads my mak
 
 3. Navigate to the server directory and start the server app via :
 
-      npm run dev
+        npm run dev
 
 3. Navigate to the client directory and start the client app via :
 
-      npm run dev
+        npm run dev
 
