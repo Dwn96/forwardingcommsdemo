@@ -43,6 +43,20 @@ The server application is a REST API that has been decoupled into the following 
 ## Client
 The client application is a simple Typescript app. This app is invloved in key-exchanges with the server application via websockets after which it sends encrypted payloads to the server application over HTTP
 
+# Forwarding Communication between Client and Server
+Communication between the client and server apps is handled in two ways:
+  1. [The WebSocket Protocol](https://www.rfc-editor.org/rfc/rfc6455)
+  2. [HTTP](https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-http2-01)
+
+ ### Websockets
+In our implementation, we make use of websockets during key-exchange which occurs as soon as a connection is established between client and server apps. 
+For this functionality, we make use of [Socket.io](https://socket.io/docs/v4/) - a library that enables bidirectional and event-based communication between the client and the server.
+
+### HTTP
+As soon as a connection has been established and the key-exchange is completed, we send encrypted payloads of dummy data over HTTP to our server application via
+POST
+
+
 ## Encryption
 
 Communication between server and client apps is encrypted end-to-end via Asymmetric Encryption. We make use of [Crypto](https://nodejs.org/api/crypto.html)
@@ -63,17 +77,5 @@ When a connection is established between the client and server apps, a key-excha
   
  At this point, the Client and Server can proceed to securely communicate for the ongoing session by encrypting using each others' public key and decrypting using  ones private key.
 
-## Re-routing/forwarding communication
-Communication between the client and server apps is handled in two ways:
-  1. [The WebSocket Protocol](https://www.rfc-editor.org/rfc/rfc6455)
-  2. [HTTP](https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-http2-01)
-
- ### Websockets
-In our implementation, we make use of websockets during key-exchange which occurs as soon as a connection is established between client and server apps. 
-For this functionality, we make use of [Socket.io](https://socket.io/docs/v4/) - a library that enables bidirectional and event-based communication between the client and the server.
-
-### HTTP
-As soon as a connection has been established and the key-exchange is completed, we send encrypted payloads of dummy data over HTTP to our server application via
-POST
 
 
