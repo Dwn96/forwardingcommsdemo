@@ -57,7 +57,7 @@ As soon as a connection has been established and the key-exchange is completed, 
 POST
 
 
-## Encryption
+# Encryption
 
 Communication between server and client apps is encrypted end-to-end via Asymmetric Encryption. We make use of [Crypto](https://nodejs.org/api/crypto.html)
 to handle the following cryptographic functionalities:
